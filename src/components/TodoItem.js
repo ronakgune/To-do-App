@@ -5,17 +5,9 @@ const strike = {
 };
 
 function TodoItem(props) {
-  let value = props.stuff.completed;
-  console.log(props.stuff.completed);
-  let input;
-  if (value === false) {
-    input = <input type="checkbox" />;
-  } else {
-    input = <input type="checkbox" checked />;
-  }
   return (
     <div className="todo-item">
-      {input}
+      <input type="checkbox" checked={props.stuff.completed} />
       <p style={{ textDecoration: props.stuff.completed && "line-through" }}>
         {props.stuff.text}
       </p>
