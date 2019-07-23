@@ -7,18 +7,21 @@ class MainConent extends React.Component {
     super();
 
     this.state = {
-      todoItemComponent: todosData.map(data => (
-        <TodoItem key={data.id} stuff={data} />
-      ))
+      todos: todosData
     };
   }
+
+  handleChange(id) {
+    console.log(id);
+  }
+
   render() {
-    return <div className="todo-list">{this.state.todoItemComponent}</div>;
+    const todoItemComponent = this.state.todos.map(data => (
+      <TodoItem key={data.id} stuff={data} handleChange={this.handleChange} />
+    ));
+
+    return <div className="todo-list">{todoItemComponent}</div>;
   }
 }
-
-// function MainConent() {
-//   return <div className="todo-list">{todoItemComponent}</div>;
-// }
 
 export default MainConent;
